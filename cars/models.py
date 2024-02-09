@@ -4,61 +4,7 @@ from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
 
 # Create your models here.
-class Car(models.Model):
-
-    # state_choice = (
-    #     ('AL', 'Alabama'),
-    #     ('AK', 'Alaska'),
-    #     ('AZ', 'Arizona'),
-    #     ('AR', 'Arkansas'),
-    #     ('CA', 'California'),
-    #     ('CO', 'Colorado'),
-    #     ('CT', 'Connecticut'),
-    #     ('DE', 'Delaware'),
-    #     ('DC', 'District Of Columbia'),
-    #     ('FL', 'Florida'),
-    #     ('GA', 'Georgia'),
-    #     ('HI', 'Hawaii'),
-    #     ('ID', 'Idaho'),
-    #     ('IL', 'Illinois'),
-    #     ('IN', 'Indiana'),
-    #     ('IA', 'Iowa'),
-    #     ('KS', 'Kansas'),
-    #     ('KY', 'Kentucky'),
-    #     ('LA', 'Louisiana'),
-    #     ('ME', 'Maine'),
-    #     ('MD', 'Maryland'),
-    #     ('MA', 'Massachusetts'),
-    #     ('MI', 'Michigan'),
-    #     ('MN', 'Minnesota'),
-    #     ('MS', 'Mississippi'),
-    #     ('MO', 'Missouri'),
-    #     ('MT', 'Montana'),
-    #     ('NE', 'Nebraska'),
-    #     ('NV', 'Nevada'),
-    #     ('NH', 'New Hampshire'),
-    #     ('NJ', 'New Jersey'),
-    #     ('NM', 'New Mexico'),
-    #     ('NY', 'New York'),
-    #     ('NC', 'North Carolina'),
-    #     ('ND', 'North Dakota'),
-    #     ('OH', 'Ohio'),
-    #     ('OK', 'Oklahoma'),
-    #     ('OR', 'Oregon'),
-    #     ('PA', 'Pennsylvania'),
-    #     ('RI', 'Rhode Island'),
-    #     ('SC', 'South Carolina'),
-    #     ('SD', 'South Dakota'),
-    #     ('TN', 'Tennessee'),
-    #     ('TX', 'Texas'),
-    #     ('UT', 'Utah'),
-    #     ('VT', 'Vermont'),
-    #     ('VA', 'Virginia'),
-    #     ('WA', 'Washington'),
-    #     ('WV', 'West Virginia'),
-    #     ('WI', 'Wisconsin'),
-    #     ('WY', 'Wyoming'),
-    # )
+class Car(models.Model):    
 
     year_choice = []
     for r in range(1980, (datetime.now().year+1)):
@@ -88,14 +34,50 @@ class Car(models.Model):
         ('6', '6'),
     )
 
-    car_title = models.CharField(max_length=255)
-    # state = models.CharField(choices=state_choice, max_length=100)
-    # city = models.CharField(max_length=100)    
+    car_title = models.CharField(max_length=255)     
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     generation = models.CharField(max_length=100)
     year = models.IntegerField(('year'), choices=year_choice)
     color = models.CharField(max_length=100)
+    modification_engine = models.CharField(max_length=100)
+    powertrain_architecture = models.CharField(max_length=100)
+    body_style = models.CharField(max_length=100)
+    seats = models.CharField(max_length=100)
+    doors = models.CharField(choices=door_choices, max_length=10)
+    wheelbase = models.CharField(max_length=50)
+    height= models.CharField(max_length=50)
+    width = models.CharField(max_length=50)
+    length = models.CharField(max_length=50)
+    dimensions = models.CharField(max_length=50)
+    fuel_type = models.CharField(max_length=50)
+    tank_capacity= models.CharField(max_length=50)
+    fuel_system= models.CharField(max_length=50)
+    acceleration = models.CharField(max_length=50)
+    cO2_emissions = models.CharField(max_length=50)
+    engine = models.CharField(max_length=100)
+    engine_displacement = models.CharField(max_length=50)
+    engine_code = models.CharField(max_length=50)
+    engine_location= models.CharField(max_length=50)
+    engine_oil_capacity= models.CharField(max_length=50)
+    engine_aspiration= models.CharField(max_length=50)
+    torque = models.CharField(max_length=50)
+    power_per_litre = models.CharField(max_length=50)
+    power = models.CharField(max_length=50)
+    Weight_to_torque_ratio = models.CharField(max_length=50)
+    Weight_to_power_ratio = models.CharField(max_length=50)
+    Emission_standard = models.CharField(max_length=50)
+    minimum_speed = models.CharField(max_length=50)
+    tire_size = models.CharField(max_length=50)
+    power_steering = models.CharField(max_length=50)
+    steering_type = models.CharField(max_length=50)
+    assisting_systems = models.CharField(max_length=50)
+    rear_brakes = models.CharField(max_length=50)
+    front_brakes = models.CharField(max_length=50)
+    rear_suspension = models.CharField(max_length=50)
+    front_suspension= models.CharField(max_length=50)
+    gears = models.CharField(max_length=50)
+    drive_wheel= models.CharField(max_length=50)   
     condition = models.CharField(max_length=100)
     price = models.IntegerField()
     description = RichTextField()
@@ -104,64 +86,16 @@ class Car(models.Model):
     car_photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
-    features = MultiSelectField(choices=features_choices)
-    body_style = models.CharField(max_length=100)
-    engine = models.CharField(max_length=100)
+    features = MultiSelectField(choices=features_choices)       
     transmission = models.CharField(max_length=100)
     interior = models.CharField(max_length=100)
-    miles = models.IntegerField()
-    doors = models.CharField(choices=door_choices, max_length=10)
+    miles = models.IntegerField()    
     passengers = models.IntegerField()
     vin_no = models.CharField(max_length=100)
-    milage = models.IntegerField()
-    fuel_type = models.CharField(max_length=50)
+    milage = models.IntegerField()    
     no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
-    # tire_size
-    # power_steering
-    # steering_type
-    # assisting_systems
-    # rear_brakes
-    # front_brakes
-    # rear_suspension
-    # front_suspension
-    # gears
-    # drive_wheel
-    # drivetrain_architecture
-    # minimum_turning_circle
-    # rear_overhang
-    # front_overhang
-    # rear_track
-    # front_track
-    # wheelbase
-    # height
-    # width
-    # length
-    # dimensions
-    # tank_capacity
-    # trunk_space
-    # kerb_weight
-    # coolant
-    # engine_oil_capacity
-    # engine_aspiration
-    # fuel_system
-    # compression_ratio
-    # piston_stroke
-    # cylinder_bore
-    # cylinder_position
-    # number_of_cylinders
-    # engine_displacement
-    # engine_code
-    # engine_location
-    # torque
-    # power_per_litre
-    # power
-    # Weight_to_torque_ratio
-    # Weight_to_power_ratio
-    # Emission_standard
-    # minimum_speed
-    # acceleration
-    # cO2_emissions
+    
 
 
 
