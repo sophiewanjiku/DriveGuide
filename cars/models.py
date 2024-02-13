@@ -34,7 +34,8 @@ class Car(models.Model):
         ('6', '6'),
     )
 
-    car_title = models.CharField(max_length=255)     
+    car_title = models.CharField(max_length=255)
+    city = models.CharField(max_length=100)     
     brand = models.CharField(max_length=100)
     model = models.CharField(max_length=100)
     generation = models.CharField(max_length=100)
@@ -78,83 +79,23 @@ class Car(models.Model):
     front_suspension= models.CharField(max_length=50)
     gears = models.CharField(max_length=50)
     drive_wheel= models.CharField(max_length=50)   
-    condition = models.CharField(max_length=100)
-    price = models.IntegerField()
-    description = RichTextField()
+    # condition = models.CharField(max_length=100)
+    price = models.IntegerField()    
     car_photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_3 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_4 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
+    description = RichTextField()
     features = MultiSelectField(choices=features_choices)       
     transmission = models.CharField(max_length=100)
     interior = models.CharField(max_length=100)
-    miles = models.IntegerField()    
+    # miles = models.IntegerField()    
     passengers = models.IntegerField()
-    vin_no = models.CharField(max_length=100)
-    milage = models.IntegerField()    
-    no_of_owners = models.CharField(max_length=100)
+    # vin_no = models.CharField(max_length=100)
+    # milage = models.IntegerField()    
+    # no_of_owners = models.CharField(max_length=100)
     is_featured = models.BooleanField(default=False)
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     created_date = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
