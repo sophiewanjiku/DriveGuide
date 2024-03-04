@@ -50,7 +50,7 @@ class Car(models.Model):
     height= models.CharField(max_length=50)
     width = models.CharField(max_length=50)
     length = models.CharField(max_length=50)
-    dimensions = models.CharField(max_length=50)
+    # dimensions = models.CharField(max_length=50)
     fuel_type = models.CharField(max_length=50)
     tank_capacity= models.CharField(max_length=50)
     fuel_system= models.CharField(max_length=50,  blank=True, null=True)
