@@ -76,6 +76,8 @@ class Car(models.Model):
     front_suspension= models.CharField(max_length=50,blank=True, null=True)
     gears = models.CharField(max_length=50, blank=True, null=True)
     drive_wheel= models.CharField(max_length=50, blank=True, null=True)   
+    price = models.CharField(max_length=50, blank=True, null=True)   
+
     car_photo = models.ImageField(upload_to='photos/%Y/%m/%d/')
     car_photo_1 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     car_photo_2 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
